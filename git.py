@@ -11,5 +11,11 @@ if media >= 8 and faltas <=30  :
     print("o aluno esta aprovado")
 elif media >= 5 and faltas <=30:
     print("o aluno esta de recuperação")
+    recuperacao = float (input("nota da recuperação "))
+    calculodarecuperacao= (10-media )
+    if recuperacao > calculodarecuperacao:
+        print("aprovado na recuperação")
+    else :
+        print("reprovado na recuperação ")
 else: 
     print("reprovado")
