@@ -1,22 +1,22 @@
+alunos = [] # alunos 
+notas = [] # notas dos alunos 
 while True: 
     print("1.cadastro, 2.ver relatorio, 3.encerrar ") 
     decisao = input() #numero de cadastro
     if decisao == "1":
         print("faça o cadastro ")
         quantidadealuno = int (input(" quantidade de aluno "))
-        alunos = []
-        cont=1
+        cont=0
         situacao = ""
         while cont <= quantidadealuno:
             nome = input("nome ")
-            alunos.append(nome)
             #LER AS NOTAS E FALTAS 
             faltas = int(input("quantidade de faltas "))
-            nota = float (input("nota1 "))
-            nota2 = float (input("nota2 "))
-            nota3 = float (input("nota3 "))
-            nota4 = float (input("nota4 "))
-            media = (nota+nota2+nota3+nota4)/4
+            for cont in range(4):
+                nota = float (input("nota1 "))
+                notas.append(nota)
+            
+            media = (notas[0]+notas[1]+notas[2]+notas[3])/4
             #APROVADO , RECUPERAÇÃO E REPROVADO 
             if media >= 8 and faltas <=30  :
                 situacao = "aprovado"
@@ -30,14 +30,11 @@ while True:
                     situacao = "reprovado na recuperação"
             else: 
                     situacao = "reprovado"
-        cont += 1
-        #nome
-        print("nome: ", nome)    
-        #media
-        print("media: ",media )
-        #faltas 
-        print ("faltas",faltas) 
-        #situacaao
-        print("esta :" ,situacao)
-
+            
+            alunos.append([nome, notas, faltas, media, situacao])
+            cont += 1
+    elif decisao == "2":
+        print(alunos)
+    else :
+        print("fim")
     
