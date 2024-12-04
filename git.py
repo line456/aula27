@@ -1,6 +1,5 @@
 alunos = [] # alunos 
 notas = [] # notas dos alunos 
-nota1 = nota2 = nota3 = nota4 = media = 0.0
 # menu de situação de alunos 
 while True: 
     print("1.cadastro, 2.ver relatorio, 3.encerrar ") 
@@ -11,17 +10,19 @@ while True:
         cont=0
         situacao = ""
         while cont < quantidadealuno:
-            nome = input("nome do aluno ")
+            nome = input("nome do aluno: ")
             #LER AS NOTAS E FALTAS 
             faltas = int(input("quantidade de faltas "))
             # 4 notas 
             for i in range(4):
-                notas.append(float (input("nota ")))
-                
+                notas.append(float (input(f"digite a nota do {i+1} bimestre "))) 
+                 
             #calculo da media 
             media = (notas[0]+notas[1]+notas[2]+notas[3])/4
-            #APROVADO , RECUPERAÇÃO E REPROVADO 
-            if media >= 8 and faltas <=30  :
+            #APROVADO , RECUPERAÇÃO E REPROVADO
+            if faltas > 30 :
+                situacao = "reprovado por falta "
+            elif media >= 8 and faltas <=30  :
                 situacao = "aprovado"
             elif media >= 5 and faltas <=30:
                 situacao = "recuperação"
@@ -39,6 +40,8 @@ while True:
             cont += 1
     # relatorio 
     elif decisao == "2":
+        if not alunos:
+            print("ainda não tem dados de um aluno")
         for i in alunos:
             print(f"Nome do aluno  {i[0]}")
             print (f"Faltas: {i[1]}")
@@ -49,4 +52,3 @@ while True:
     else :
         print("fim")
         break
-        
