@@ -2,8 +2,10 @@ alunos = [] # alunos
 notas = [] # notas dos alunos 
 # menu de situação de alunos 
 while True: 
+    
     print("1.cadastro, 2.ver relatorio, 3.encerrar ") 
     decisao = input() #numero de cadastro
+    # cadastro do aluno 
     if decisao == "1":
         print("faça o cadastro ")
         quantidadealuno = int (input(" quantidade de aluno "))
@@ -40,10 +42,11 @@ while True:
             cont += 1
     # relatorio 
     elif decisao == "2":
-        if not alunos:
+        if not alunos: # se nao tiver dados do aluno 
             print("ainda não tem dados de um aluno")
+            # relatorio do aluno 
         for i in alunos:
-            print(f"Nome do aluno  {i[0]}")
+            print(f"Nome do aluno  {i[0]}") 
             print (f"Faltas: {i[1]}")
             print (f"notas: {', '.join(map(str, i[2]))}") 
             print (f"media: {i[3]}")
