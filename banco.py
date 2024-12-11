@@ -1,4 +1,9 @@
 #cadastro de usuário e senha
+#declarar função
+def validar_senha():
+    senha_validar = input("digite sua senha")
+    if senha_validar == senha :
+        return True # retorna verdadeiro  
 saldo = 0.0 # variavel que guardará o saldo do usuário 
 while True:
     #menu principal 
@@ -30,27 +35,25 @@ while True:
                     saldo = saldo + valor_deposito #atualizar o valor
                 elif escolha_principal == 2:
                     valor_saque = float(input("digite o valor do saque "))
-                    senha_saque = (input("digite sua senha: "))
-                    if senha_saque == senha :
+                    if validar_senha():
                         saldo = saldo - valor_saque #subtrair o valor do saldo 
                     else:
                         print("senha incorreta ") 
                 elif escolha_principal == 3 : # se usuário escolher pix 
                     valor_pix = (input("digite o valor do pix "))
-                    senha_pix = input("digite sua senha ")
-                    if senha_pix == senha:
+                    if validar_senha():
                         saldo = saldo - valor_pix
                     else :
                         print("senha incorreta")
                 elif escolha_principal == 4 : #se usuário escolher visualizar o extrato 
-                    senha_extrato = input("digite sua senha ")
-                    if senha_extrato == senha:
+            
+                    if validar_senha():
                         print("extrato: ", saldo)
                     else :
                         print("senha incorreta ")
                 elif escolha_principal == 5: # encerrar
-                    senha_encerrar = input("digite sua senha")
-                    if senha_encerrar == senha :
+                   
+                    if validar_senha():
                         break
                     else :
                         print("senha incorreta ") 
